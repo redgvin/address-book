@@ -1,0 +1,27 @@
+<div class="col-md-2">
+  {{#link-to 'contactNew' class="btn btn-default"}}Add new contact!{{/link-to}}
+</div>
+<div class="col-md-4">{{input class="form-control filter-input" value=search type='text' placeholder="search by First Name:"}}</div>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th></th>
+        <th {{action "sortBy" "firstName"}}>First Name<span {{bind-attr class="sortedOnFirstName:sorted glyphiconDirection :glyphicon"}}></span></th>
+        <th>LastName</th>
+        <th {{action "sortBy" "phone"}}>Phone<span {{bind-attr class="sortedOnPhone:sorted glyphiconDirection :glyphicon"}}></span></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each contact in contactList}}
+        <tr>
+            <td> {{input type='checkbox' checked=contact.isSelected class='toggle'}}</td>
+            <td>{{#link-to 'contact' contact}}{{contact.firstName}}{{/link-to}}</td>
+            <td>{{contact.lastName}}</td>
+            <td>{{contact.phone}}</td>
+            <td><span {{action 'deleteContact' contact}} class='glyphicon glyphicon-remove danger'></span></td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

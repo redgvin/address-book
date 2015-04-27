@@ -1,0 +1,32 @@
+{{#if isEdit}}
+    {{partial 'edit'}}
+{{else}}
+    <button {{action 'edit'}}>Edit</button>
+{{/if}}
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>firstName</th>
+        <th>lastName</th>
+        <th>phone</th>
+        <th>email</th>
+        <th>photo</th>
+        <th>dateOfBith</th>
+        <th>notice</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{model.firstName}}</td>
+        <td>{{model.lastName}}</td>
+        <td>{{model.phone}}</td>
+        <td>{{model.email}}</td>
+        <td><img {{bind-attr src=model.photo}} width="75" height="75" alt="photo"></td>
+        <td>{{format-date model.dateOfBith}}</td>
+        <td>{{model.notice}}</td>
+    </tr>
+    </tbody>
+</table>
+<button {{action 'deleteContact' this}} class='btn btn-danger'>Delete</button>
+<button {{action 'addToFavorites' this}} class='btn btn-success'>Add to Favorites</button>
+{{outlet}}
