@@ -7,7 +7,7 @@ var app = new EmberApp();
 app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
 app.import('bower_components/bootstrap/dist/css/bootstrap.min.css');
 
-app.import('bower_components/moment/moment.js');
+app.import({development:'vendor/moment/moment.js'}, { 'moment': [ 'default' ] });
 
 app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot', {
   destDir: 'fonts'
